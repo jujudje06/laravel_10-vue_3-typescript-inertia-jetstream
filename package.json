@@ -1,0 +1,35 @@
+{
+    "private": true,
+    "type": "module",
+    "scripts": {
+        "dev": "vite",
+        "build": "vue-tsc --noEmit && vite build",
+        "lint": "eslint --ext .ts,.js,.vue --ignore-path .gitignore .",
+        "format": "composer pint; yarn lint",
+        "stan": "composer stan",
+        "db": "./artisan db",
+        "serve": "./artisan serve",
+        "seed": "./artisan migrate:fresh --seed"
+    },
+    "devDependencies": {
+        "@babel/types": "^7.24.0",
+        "@inertiajs/vue3": "^1.0.15",
+        "@tailwindcss/forms": "^0.5.2",
+        "@tailwindcss/typography": "^0.5.2",
+        "@types/lodash": "^4.14.202",
+        "@types/node": "^20.11.25",
+        "@types/ziggy-js": "^1.8.0",
+        "@vitejs/plugin-vue": "^4.6.2",
+        "autoprefixer": "^10.4.7",
+        "axios": "^1.6.7",
+        "laravel-vite-plugin": "^1.0.2",
+        "lodash": "^4.17.21",
+        "postcss": "^8.4.14",
+        "tailwindcss": "^3.1.0",
+        "typescript": "^5.4.2",
+        "vite": "^5.1.5",
+        "vue": "^3.4.21",
+        "vue-tsc": "^2.0.6",
+        "ziggy-js": "^2.0.4"
+    }
+}
