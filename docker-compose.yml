@@ -75,24 +75,6 @@ services:
             timeout: 5s
             retries: 20
 
-    # ####################################################################################################
-    # # DATABASE (MariaDB)
-    # ####################################################################################################
-    # db:
-    #     image: mariadb:10.11
-    #     ports:
-    #         - 3306:3306
-    #     volumes:
-    #         - .docker/db/data:/var/lib/mysql
-    #         - .docker/logs:/var/log/mysql
-    #         - .docker/db/my.cnf:/etc/mysql/conf.d/my.cnf
-    #         - .docker/db/sql:/docker-entrypoint-initdb.d
-    #     environment:
-    #         MYSQL_ROOT_PASSWORD: root
-    #         MYSQL_DATABASE: laravel_db_name
-    #         MYSQL_USER: laravel_db_user
-    #         MYSQL_PASSWORD: laravel_db_pass
-
     ####################################################################################################
     # phpMyAdmin
     ####################################################################################################
@@ -116,16 +98,6 @@ services:
         networks:
             - proxy
             - laravel-net
-
-    ####################################################################################################
-    # Adminer
-    ####################################################################################################
-#    adminer:
-#        image: adminer
-#        ports:
-#            - 9090:8080
-#        depends_on:
-#        - db
 
     ####################################################################################################
     # Mailpit
@@ -177,7 +149,7 @@ services:
         networks:
             - proxy
 
-    # Import to Chrome browser the ca.cert file generated in /.docker/nginx/certs/ca.cert
+    # Import to browser the ca.cert file generated in /.docker/nginx/certs/ca.cert
     # Need to import cert file under "root trusted autorities" tab
     # From https://github.com/sebastienheyd/docker-self-signed-proxy-companion
     nginx-companion:

@@ -1,13 +1,23 @@
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
 
+# This repo is a fork of [refactorian/laravel-docker](https://github.com/refactorian/laravel-docker)
+Thanks to the great job already done, i added:  
+- https support with a reverse proxy + self-signed certificates.  
+- PHP 8.3 
+- Node.js 20.x
+- Vuejs 3
+- Typescript
+- Inertia
+- Jetstream
+- IDE Helper
+
 # Laravel Docker Starter Kit
 - Laravel v10.x
-- PHP v8.2.x
+- PHP v8.3.x
 - MySQL v8.1
-- MariaDB v10.11
 - phpMyAdmin v5.x
 - Mailpit v1.x
-- Node.js v18.x
+- Node.js v20.x
 - NPM v10.x
 - Yarn v1.x
 - Vite v5.x
@@ -20,29 +30,26 @@
 
 # How To Deploy
 
-### For first time only !
-- `docker compose up -d --build`
-- `docker compose exec php bash`
-- `composer setup`
+Edit your hosts file and add the following DNS
+```
+127.0.0.1 laravel.dev.fr
+127.0.0.1 laravel.pma.fr
+```
+*You can customize urls, but don't forget to adapt them in the `docker-compose.yml` file!*
 
-### From the second time onwards
-- `docker compose up -d`
+Then you can run the containers:
+```shell
+docker compose up -d --build
+```
 
 # Notes
 
 ### Laravel App
-- URL: http://localhost
+- URL: [https://laravel.dev.fr](https://laravel.dev.fr)
 
 ### phpMyAdmin
-- URL: http://localhost:8080
-- Server: `db`
-- Username: `refactorian`
-- Password: `refactorian`
-- Database: `refactorian`
-
-### Adminer
-- URL: http://localhost:9090
-- Server: `db`
+- URL: [https://laravel.pma.fr](https://laravel.pma.fr)
+- Server: `db_mysql`
 - Username: `refactorian`
 - Password: `refactorian`
 - Database: `refactorian`
@@ -103,10 +110,6 @@
     - `vendor/bin/rector process --dry-run`
 - Process
     - `vendor/bin/rector process`
-
-# TODO
-- Improve environment 
-- Add more containers
 
 ---
 
